@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragmentsCard.undergrowth.Undergrowth">
+
+
+    <EditText
+        android:id="@+id/text_density"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:hint="density"
+        android:gravity="center"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="80dp">
+
+    </EditText>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_undergrowth"
+        android:layout_width="210dp"
+        android:layout_height="187dp"
+        android:background="@drawable/custom_input"
+        android:layout_below="@id/name_recyclers"
+        android:layout_marginStart="20dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_undergrowth_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="15dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_add_withe_56dp"
+        >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <TextView
+        android:id="@+id/name_recyclers"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:text="Type trees">
+
+    </TextView>
+
+
+</RelativeLayout>

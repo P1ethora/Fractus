@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_google_signin_btn_text_dark_default"
+    tools:context=".fragmentsCard.description.Description">
+
+
+    <EditText
+        android:id="@+id/sectionNumber"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="section number"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/typeOfland"
+        android:layout_below="@+id/sectionNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="type of land"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/forestType"
+        android:layout_below="@+id/typeOfland"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="forest type"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/conditionType"
+        android:layout_below="@+id/forestType"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="condition type"
+        android:inputType="textMultiLine" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_below="@+id/conditionType"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_input" />
+
+    <EditText
+        android:id="@+id/ptg"
+        android:layout_below="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="ptg"
+        android:inputType="textMultiLine" />
+
+
+    <EditText
+        android:id="@+id/deadTree"
+        android:layout_below="@+id/ptg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="dead tree(m³)"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/deadLiquid"
+        android:layout_below="@+id/deadTree"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="dead tree(liquid)"
+        android:inputType="textMultiLine" />
+
+</RelativeLayout>

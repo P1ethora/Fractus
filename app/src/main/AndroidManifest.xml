@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.plethora.fractus_01">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="com.plethora.fractus_01.Snapshot"
+            android:label="Snapshot"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity
+            android:name="com.plethora.fractus_01.model.logic.AddNewDistrict"
+            android:label="New district"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.graphical_display.graphical_model.listSection.SectionList"
+            android:label="Sections"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.graphical_display.graphical_model.listQuarter.NewForesty"
+            android:label="District"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.circularSquares.CircularSquares"
+            android:label="Circular squares"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.modelTrees.ModelTrees"
+            android:label="Model trees"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.moreInformation.MoreInformation"
+            android:label="More information"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.events.Events"
+            android:label="Events"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.undergrowth.Undergrowth"
+            android:label="Undergrowth"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.underbrush.Underbrush"
+            android:label="Underbrush"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.description.Description"
+            android:label="Description"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <activity
+            android:name="com.plethora.fractus_01.fragmentsCard.structure.Structure"
+            android:label="Structure"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="com.plethora.fractus_01.graphical_display.graphical_model.sectionMenu.SectionMenu"
+            android:label="Section menu"
+            android:theme="@style/AppTheme.SlidrActivityTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.plethora.fractus_01.graphical_display.graphical_model.home.HomeActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_default_color_surface"
+    tools:context=".graphical_display.graphical_model.sectionMenu.SectionMenu"
+    android:orientation="horizontal">
+
+
+    <Button
+        android:id="@+id/btnDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/custom_input"
+        android:text="Description" />
+
+    <Button
+        android:id="@+id/btnStructure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@+id/btnDescription"
+        android:background="@drawable/custom_input"
+        android:text="Structure" />
+
+    <Button
+        android:id="@+id/btnUndergrowth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@+id/btnStructure"
+        android:background="@drawable/custom_input"
+        android:text="Undergrowth" />
+
+    <Button
+        android:id="@+id/btnUnderbrush"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@+id/btnUndergrowth"
+        android:background="@drawable/custom_input"
+        android:text="underbrush" />
+
+
+    <Button
+        android:id="@+id/btnEvents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@+id/btnUnderbrush"
+        android:background="@drawable/custom_input"
+        android:text="Events" />
+
+
+    <Button
+        android:id="@+id/btnMoreInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@+id/btnEvents"
+        android:background="@drawable/custom_input"
+        android:text="more information" />
+
+
+    <Button
+        android:id="@+id/btnModelTrees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@id/btnMoreInformation"
+        android:background="@drawable/custom_input"
+        android:text="Model trees" />
+
+    <Button
+        android:id="@+id/btnCircularSquares"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:layout_below="@+id/btnModelTrees"
+        android:background="@drawable/custom_input"
+        android:text="Circular squares" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

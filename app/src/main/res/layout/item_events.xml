@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_google_signin_btn_text_dark_focused">
+
+        <EditText
+            android:id="@+id/number_item_events"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:layout_margin="1dp"
+            android:background="@color/white">
+
+        </EditText>
+
+        <EditText
+            android:id="@+id/item_numberRTK_events"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_toEndOf="@+id/number_item_events"
+            android:background="@color/white"
+            android:gravity="center"
+            android:layout_margin="1dp"
+            >
+
+        </EditText>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

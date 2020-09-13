@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_margin="5dp"
+    android:elevation="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/common_google_signin_btn_text_dark_disabled"
+    app:cardCornerRadius="18dp">
+
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/design_default_color_surface">
+
+
+        <TextView
+            android:id="@+id/txtNumberQuarter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/m_bouton"
+            android:gravity="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:text="50"
+            android:textAppearance="?android:textAppearanceMedium" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

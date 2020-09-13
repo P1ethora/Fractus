@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragmentsCard.undergrowth.Undergrowth">
+
+
+    <EditText
+        android:id="@+id/text_target_species_events"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:hint="Target species"
+        android:gravity="center"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="80dp"
+        android:textSize="15sp">
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/text_percent_events"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:hint="%"
+        android:gravity="center"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/text_target_species_events"
+        android:textSize="15sp">
+    </EditText>
+
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_events"
+        android:layout_width="200dp"
+        android:layout_height="227dp"
+        android:background="@drawable/custom_input"
+        android:layout_below="@id/name_recyclers"
+        android:layout_marginStart="20dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_events_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="15dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_add_withe_56dp"
+        >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <TextView
+        android:id="@+id/name_recyclers"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:gravity="center"
+        android:text="Number events">
+
+    </TextView>
+
+
+</RelativeLayout>

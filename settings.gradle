@@ -1,0 +1,2 @@
+rootProject.name='Basilisk_0.1'
+include ':app'
