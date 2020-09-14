@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.plethora.fractus_01.model.logic.SelectionState;
 
 public class Snapshot extends AppCompatActivity {
-
+//Обработка снимка
     ImageView imageView;
 
     @Override
