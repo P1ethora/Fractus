@@ -36,6 +36,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private String pathFolder = Environment.getExternalStorageDirectory() + "/"
+                    + "Forestry_Districts";
+
     private DistrictAdapter districtAdapter;
     private ActionMode actionMode;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -43,10 +46,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private RecyclerView rv;
     private ArrayList<District> allDistricts;
-    private ArrayList<ItemDistrict> allItemDistricts;
-    private TextView numberFile;
-
-
 
 
     @Override
@@ -55,12 +54,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         setContentView(R.layout.activity_home);
 
-        numberFile = (TextView) findViewById(R.id.numberFile); //helper
         createFolder();   //new folder
-
-
-        numberFile.setText(String.valueOf(readFolder().size())); // check folder
-
+        readFolder();
 
         drawerLayout = findViewById(R.id.drawer1);
         navigationView = findViewById(R.id.nav_view1);
@@ -142,10 +137,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 @Override
                 public void onDestroyActionMode(ActionMode mode) {
                     districtAdapter.selectedItems.clear();
-                    List<District> itemDistricts = districtAdapter.getItemDistricts();
-                    for (District itemDistrict : itemDistricts) {
-                        if (itemDistrict.getItemDistrict().isSelected())
-                            itemDistrict.getItemDistrict().setSelected(false);
+                    List<District> districts = districtAdapter.getListDistricts();
+                    for (District district : districts) {
+                       // if (itemDistrict.getItemDistrict().isSelected())
+                        if (district.isSelected())
+                           // itemDistrict.getItemDistrict().setSelected(false);
+                            district.setSelected(false);
                     }
 
                     districtAdapter.notifyDataSetChanged();
@@ -198,26 +195,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void createFolder() throws NullPointerException {
 
-        File apkStorage = new File(
-                Environment.getExternalStorageDirectory() + "/"
-                        + "Forestry_Districts");
-
+        File apkStorage = new File(pathFolder);
         if (!apkStorage.exists()) {
-
             apkStorage.mkdir();
         }
     }
 
-    private ArrayList<District> readFolder() {
+    private void readFolder() {
+
         allDistricts = new ArrayList<>();
-        //ArrayList<ItemDistrict> itemDistricts = new ArrayList<>();
-
-        File folder = new File(Environment.getExternalStorageDirectory() + "/"
-                + "Forestry_Districts");
-
+        File folder = new File(pathFolder);
         FileInputStream fis = null;
         ObjectInputStream oin = null;
         File[] fList = folder.listFiles();
+
 
         if (fList != null) {
             for (File f : fList) {
@@ -242,16 +233,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                     allDistricts.add(district);
 
-
             }
-
           /*  for(District district :allDistricts ){
                 if(district!=null)
                 itemDistricts.add(district.getItemDistrict());
             }*/
-
         }
-        return allDistricts;
     }
 
     public static void hideSoftKeyboard(Context context, View view) {

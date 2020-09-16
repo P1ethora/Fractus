@@ -1,4 +1,4 @@
-package com.plethora.fractus_01.fragmentsCard.structure.testActiv;
+package com.plethora.fractus_01.fragmentsCard.structure;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import com.plethora.fractus_01.R;
-import com.plethora.fractus_01.fragmentsCard.structure.ItemStructure;
+
 import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 

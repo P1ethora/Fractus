@@ -32,16 +32,16 @@ import androidx.recyclerview.widget.RecyclerView;
 public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailViewHolder> {
 
     private EmailAdapterListener listener;
-    private final List<District> itemDistricts;
+    private final List<District> listDistricts;
     final SparseBooleanArray selectedItems = new SparseBooleanArray();
     private int currentSelectedPos;
 
-    DistrictAdapter(List<District> itemDistricts) {
-        this.itemDistricts = itemDistricts;
+    DistrictAdapter(List<District> listDistricts) {
+        this.listDistricts = listDistricts;
     }
 
-    public List<District> getItemDistricts() {
-        return itemDistricts;
+    public List<District> getListDistricts() {
+        return listDistricts;
     }
 
     public void setListener(EmailAdapterListener listener) {
@@ -58,9 +58,9 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
 
     @Override
     public void onBindViewHolder(@NonNull EmailViewHolder holder, final int position) {
-        final District itemDistrict = itemDistricts.get(position);
+        final District district = listDistricts.get(position);
         try {
-            holder.bind(itemDistrict);
+            holder.bind(district);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,7 +72,7 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
                     listener.onItemClick(position);
 
                 else {
-                    SelectionState.file = itemDistrict;
+                    SelectionState.file = district;
                     Intent intent = new Intent(view.getContext(), NewForesty.class);   //если выделение не активировано и произошел клик открываем
 
                     //intent.putExtra()
@@ -98,17 +98,18 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
 
     @Override
     public int getItemCount() {
-        return itemDistricts.size();
+        return listDistricts.size();
     }
 
     void deleteEmails() {
         List<District> itemDistricts = new ArrayList<>();
-        for (District itemDistrict : this.itemDistricts) {
-            if (itemDistrict.getItemDistrict().isSelected())
-                itemDistricts.add(itemDistrict);
+        for (District district : this.listDistricts) {
+            //if (district.getItemDistrict().isSelected())
+            if (district.isSelected())
+                itemDistricts.add(district);
         }
 
-        this.itemDistricts.removeAll(itemDistricts);
+        this.listDistricts.removeAll(itemDistricts);
         notifyDataSetChanged();
         currentSelectedPos = -1;
     }
@@ -117,10 +118,12 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
         currentSelectedPos = position;
         if (selectedItems.get(position)) {
             selectedItems.delete(position);
-            itemDistricts.get(position).getItemDistrict().setSelected(false);
+            //listDistricts.get(position).getItemDistrict().setSelected(false);
+            listDistricts.get(position).setSelected(false);
         } else {
             selectedItems.put(position, true);
-            itemDistricts.get(position).getItemDistrict().setSelected(true);
+            //listDistricts.get(position).getItemDistrict().setSelected(true);
+            listDistricts.get(position).setSelected(true);
         }
         notifyItemChanged(position);
     }
@@ -145,15 +148,24 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
         }
 
 
-        void bind(District itemDistrict)  {
-            try{
-            int hash = itemDistrict.getItemDistrict().getNameDistrict().hashCode();
-            txtIcon.setText(String.valueOf(itemDistrict.getItemDistrict().getNameDistrict().charAt(0)));
-            txtIcon.setBackground(oval(Color.rgb(hash, hash / 2, 0), txtIcon));
-            txtUser.setText(itemDistrict.getItemDistrict().getNameDistrict());
-            txtSubject.setText(itemDistrict.getItemDistrict().getSubject());
-            txtPreview.setText(itemDistrict.getItemDistrict().getPreview());
-            txtDate.setText(itemDistrict.getItemDistrict().getDate());} catch (Exception e){
+        void bind(District district) {
+            try {
+               /* int hash = district.getItemDistrict().getNameDistrict().hashCode();
+                txtIcon.setText(String.valueOf(district.getItemDistrict().getNameDistrict().charAt(0)));
+                txtIcon.setBackground(oval(Color.rgb(hash, hash / 2, 0), txtIcon));
+                txtUser.setText(district.getItemDistrict().getNameDistrict());
+                txtSubject.setText(district.getItemDistrict().getSubject());
+                txtPreview.setText(district.getItemDistrict().getPreview());
+                txtDate.setText(district.getItemDistrict().getDate());
+                */
+                int hash = district.getNameDistrict().hashCode();
+                txtIcon.setText(String.valueOf(district.getNameDistrict().charAt(0)));
+                txtIcon.setBackground(oval(Color.rgb(hash, hash / 2, 0), txtIcon));
+                txtUser.setText(district.getNameDistrict());
+                txtSubject.setText(district.getSubject());
+                txtPreview.setText(district.getPreview());
+                txtDate.setText(district.getDate());
+            } catch (Exception e) {
                 e.printStackTrace();
 
             }
@@ -163,7 +175,8 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
             //txtDate.setTypeface(Typeface.DEFAULT, email.isUnread() ? Typeface.BOLD : Typeface.NORMAL);
 
 
-            if (itemDistrict.getItemDistrict().isSelected()) {
+            //if (district.getItemDistrict().isSelected()) {
+            if (district.isSelected()) {
                 txtIcon.setBackground(oval(Color.rgb(26, 115, 233), txtIcon));
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -180,12 +193,14 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
 
             // animation
             if (selectedItems.size() > 0)
-                animate(txtIcon, itemDistrict.getItemDistrict());
+                //animate(txtIcon, district.getItemDistrict());
+                animate(txtIcon, district);
 
 
         }
 
-        private void animate(final TextView view, final ItemDistrict itemDistrict) {
+        //private void animate(final TextView view, final ItemDistrict itemDistrict) {
+        private void animate(final TextView view, final District district) {
             ObjectAnimator oa1 = ObjectAnimator.ofFloat(view, "scaleX", 1f, 0f);
             final ObjectAnimator oa2 = ObjectAnimator.ofFloat(view, "scaleX", 0f, 1f);
             oa1.setInterpolator(new DecelerateInterpolator());
@@ -197,7 +212,8 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    if (itemDistrict.isSelected())
+                    //if (itemDistrict.isSelected())
+                    if (district.isSelected())
                         view.setText("\u2713");
                     oa2.start();
                 }
@@ -220,7 +236,6 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
 
         void onItemLongClick(int position);
     }
-
 
 
 }

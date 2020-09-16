@@ -13,7 +13,6 @@ import android.view.View;
 
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.plethora.fractus_01.R;
-import com.plethora.fractus_01.fragmentsCard.structure.testActiv.ProductAdapter;
 import com.plethora.fractus_01.model.logic.SelectionState;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrInterface;

@@ -19,7 +19,7 @@ public class SelectionState {
 public static void save() throws IOException {
 
     String path = Environment.getExternalStorageDirectory() + "/"
-            + "Forestry_Districts" + "/" + file.getItemDistrict().getNameDistrict();
+            + "Forestry_Districts" + "/" + file.getNameDistrict();
 
     FileOutputStream fos = new FileOutputStream(path);
     ObjectOutputStream oos = new ObjectOutputStream(fos);

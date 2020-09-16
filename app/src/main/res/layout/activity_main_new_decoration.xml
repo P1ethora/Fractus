@@ -37,13 +37,5 @@
             tools:listitem="@layout/email_item"
             android:layout_height="match_parent"/>
 
-    <TextView
-        android:id="@+id/numberFile"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:text="GGGGG"
-        android:textColor="@color/black"/>
 
 </RelativeLayout>

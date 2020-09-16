@@ -16,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.plethora.fractus_01.R;
-import com.plethora.fractus_01.graphical_display.graphical_model.home.ItemDistrict;
 import com.plethora.fractus_01.graphical_display.graphical_model.home.DistrictAdapter;
 import com.plethora.fractus_01.graphical_display.graphical_model.home.HomeActivity;
 import com.plethora.fractus_01.model.District;
@@ -82,13 +81,12 @@ public class AddNewDistrict extends AppCompatActivity {
 
                 try {
 
-                    ItemDistrict itemDistrict = new ItemDistrict();
-                    itemDistrict.setNameDistrict(txtDistrictName.getText().toString());
-                    itemDistrict.setPreview(txtRegionName.getText().toString());
-                    itemDistrict.setSubject(txtForestryName.getText().toString());
-                    itemDistrict.setDate("7 aug");//TODO сделать нормальную дату
+                    District district = new District(new ArrayList<Quarter>());
+                    district.setNameDistrict(txtDistrictName.getText().toString());
+                    district.setPreview(txtRegionName.getText().toString());
+                    district.setSubject(txtForestryName.getText().toString());
+                    district.setDate("7 aug");//TODO сделать нормальную дату
 
-                    District district = new District(itemDistrict, new ArrayList<Quarter>());
 
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteImage); // Разбираем битмап на байты
                     district.setBitmap(byteImage.toByteArray());  // добавляем байты в файл
