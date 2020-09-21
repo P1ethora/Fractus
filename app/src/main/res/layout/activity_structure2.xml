@@ -6,51 +6,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
-    tools:context=".fragmentsCard.structure.Structure">
+    tools:context=".fragmentsCard.structure.Structure"
+    tools:ignore="PrivateResource">
+
+    <LinearLayout
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="@dimen/padd_10"
+        android:id="@+id/Shapka_structure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@id/Shapka_structure"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_p50">
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         >
 
-        <TextView
-            android:id="@+id/Yarus"
-            android:layout_width="50dp"
-            android:layout_height="55dp"
-            android:text="Tier"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:background="@color/white"/>
+
 
 
         <TextView
             android:id="@+id/Coef"
-            android:layout_width="50dp"
+            android:layout_width="52dp"
             android:layout_height="55dp"
             android:text="Coef"
             android:gravity="center"
-            android:layout_marginStart="1dp"
+
             android:textColor="@color/black"
             android:background="@color/white"
-            android:layout_toEndOf="@+id/Yarus"
+
             />
 
 
         <TextView
             android:id="@+id/TypeTree"
-            android:layout_width="50dp"
+            android:layout_width="52dp"
             android:layout_height="55dp"
             android:text="Tree"
             android:gravity="center"
@@ -62,7 +65,7 @@
 
         <TextView
             android:id="@+id/A"
-            android:layout_width="50dp"
+            android:layout_width="52dp"
             android:layout_height="55dp"
             android:text="A"
             android:gravity="center"
@@ -73,7 +76,7 @@
 
         <TextView
             android:id="@+id/H"
-            android:layout_width="50dp"
+            android:layout_width="53dp"
             android:layout_height="55dp"
             android:text="H"
             android:gravity="center"
@@ -84,7 +87,7 @@
 
         <TextView
             android:id="@+id/D"
-            android:layout_width="50dp"
+            android:layout_width="52dp"
             android:layout_height="55dp"
             android:text="D"
             android:gravity="center"
@@ -95,7 +98,7 @@
 
         <TextView
             android:id="@+id/KLT"
-            android:layout_width="50dp"
+            android:layout_width="52dp"
             android:layout_height="55dp"
             android:text="KLT"
             android:gravity="center"
@@ -107,6 +110,8 @@
 
     </RelativeLayout>
     </RelativeLayout>
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_structure"

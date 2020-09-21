@@ -28,14 +28,23 @@ public class Structure extends AppCompatActivity implements Serializable {
     private SlidrInterface slidrInterface;
 
     //a list to store all the products
-   private ArrayList <ItemStructure> productList;
+    private ArrayList<ItemStructure> productList;
+    private ArrayList<TierItemStructure> tierList;
 
     //the recyclerview
     transient private RecyclerView recyclerView;
-    transient private ProductAdapter adapter;
+
+    public RecyclerView getRecyclerView2() {
+        return recyclerView2;
+    }
+
+    transient private RecyclerView recyclerView2;
+
+    //transient private StructureAdapter adapter;
+    transient private TierAdapter adapter;
     private SwipeMenuListView listView;
-private int quarterNumber;
-private int sectionNumber;
+    private int quarterNumber;
+    private int sectionNumber;
 
 
     @Override
@@ -44,11 +53,11 @@ private int sectionNumber;
         setContentView(R.layout.activity_structure2);
         slidrInterface = Slidr.attach(this);
 
-       // Intent intent = getIntent();
-      // Bundle extras = intent.getExtras();
+        // Intent intent = getIntent();
+        // Bundle extras = intent.getExtras();
 
-       // quarterNumber = extras.getInt("numQuarter");
-       // sectionNumber = extras.getInt("numberSection");
+        // quarterNumber = extras.getInt("numQuarter");
+        // sectionNumber = extras.getInt("numberSection");
 
         //TODO нужна реализация яруса и открытие структуры согласно данным файла
 
@@ -57,17 +66,23 @@ private int sectionNumber;
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_structure);
+
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //recyclerView2.setHasFixedSize(true);
+        //recyclerView2.setLayoutManager(new LinearLayoutManager(this));
+
         //productList = SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure();
-productList = new ArrayList<>();
+        productList = new ArrayList<>();
+        tierList = new ArrayList<>();
         findViewById(R.id.fab_structure_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ItemStructure itemStructure = new ItemStructure();
 
-                itemStructure.setYarus("");
+                //itemStructure.setYarus("");
                 itemStructure.setCoef("");
                 itemStructure.setTypeTree("");
                 itemStructure.setA("");
@@ -88,48 +103,49 @@ productList = new ArrayList<>();
         });
 
 
+        // if (productList.size() == 0) {
+        // if (SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().size() == 0) {
 
-       // if (productList.size() == 0) {
-       // if (SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().size() == 0) {
+        ItemStructure itemStructure = new ItemStructure();
 
-            ItemStructure itemStructure = new ItemStructure();
+        //itemStructure.setYarus("");
+        itemStructure.setCoef("");
+        itemStructure.setTypeTree("");
+        itemStructure.setA("");
+        itemStructure.setH("");
+        itemStructure.setD("");
+        itemStructure.setKLT("");
 
-            itemStructure.setYarus("");
-            itemStructure.setCoef("");
-            itemStructure.setTypeTree("");
-            itemStructure.setA("");
-            itemStructure.setH("");
-            itemStructure.setD("");
-            itemStructure.setKLT("");
+        ItemStructure itemStructure1 = new ItemStructure();
 
-            ItemStructure itemStructure1 = new ItemStructure();
+        //itemStructure1.setYarus("");
+        itemStructure1.setCoef("");
+        itemStructure1.setTypeTree("");
+        itemStructure1.setA("");
+        itemStructure1.setH("");
+        itemStructure1.setD("");
+        itemStructure1.setKLT("");
 
-            itemStructure1.setYarus("");
-            itemStructure1.setCoef("");
-            itemStructure1.setTypeTree("");
-            itemStructure1.setA("");
-            itemStructure1.setH("");
-            itemStructure1.setD("");
-            itemStructure1.setKLT("");
+        productList.add(itemStructure);
+        productList.add(itemStructure1);
 
-            productList.add(itemStructure);
-            productList.add(itemStructure1);
-
-            //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure);
-            //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure1);
-           // productList.add(itemStructure);
-            //productList.add(itemStructure1);
-
+        TierItemStructure tierItemStructure = new TierItemStructure("tier1", productList);
+        tierList.add(tierItemStructure);
+        //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure);
+        //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure1);
+        // productList.add(itemStructure);
+        //productList.add(itemStructure1);
 
 
         //creating recyclerview adapter
-        adapter = new ProductAdapter(this, productList);
+        //adapter = new StructureAdapter(this, productList);
+        adapter = new TierAdapter(tierList, getRecyclerView2());
 
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);
 
 
-        ItemTouchHelper helper = new ItemTouchHelper(
+       /* ItemTouchHelper helper = new ItemTouchHelper(
                 // below statement: used at move and sort
                 // new ItemTouchHandler(ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 //ItemTouchHelper.LEFT)
@@ -137,7 +153,8 @@ productList = new ArrayList<>();
                         ItemTouchHelper.LEFT)
         );
 
-        helper.attachToRecyclerView(recyclerView);
+        helper.attachToRecyclerView(recyclerView);*/
+
 
     }
 
@@ -152,16 +169,16 @@ productList = new ArrayList<>();
     }*/
 
 
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            switch (item.getItemId()) {
-                case android.R.id.home:
-                    this.finish();
-                    return true;
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+    }
 
     private class ItemTouchHandler extends ItemTouchHelper.SimpleCallback {
 
@@ -179,7 +196,6 @@ productList = new ArrayList<>();
 
             return true;
         }
-
 
 
         @Override

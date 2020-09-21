@@ -52,7 +52,7 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
     @Override
     public EmailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.email_item, parent, false);
+                R.layout.district_item, parent, false);
         return new EmailViewHolder(view);
     }
 

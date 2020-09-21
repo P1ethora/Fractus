@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ItemStructure implements Serializable {
 
     private static final long serialVersionUID = 99999000808844L;
-    private String yarus;
+    //private String yarus;
     private String coef;
     private String typeTree;
     private String A;
@@ -27,13 +27,13 @@ public class ItemStructure implements Serializable {
     }*/
 
 
-    public String getYarus() {
+   /* public String getYarus() {
         return yarus;
     }
 
     public void setYarus(String yarus) {
         this.yarus = yarus;
-    }
+    }*/
 
 
     public String getCoef() {
@@ -190,7 +190,7 @@ public class ItemStructure implements Serializable {
 
         public ItemStructure build() {
             ItemStructure itemStructure = new ItemStructure();
-            itemStructure.yarus = yarus;
+            //itemStructure.yarus = yarus;
             itemStructure.coef = coef;
             itemStructure.typeTree = typeTree;
             itemStructure.A = A;

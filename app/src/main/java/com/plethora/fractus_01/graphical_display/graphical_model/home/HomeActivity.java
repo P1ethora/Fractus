@@ -73,21 +73,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
         districtAdapter = new DistrictAdapter(allDistricts);
-        //districtAdapter = new DistrictAdapter(new ArrayList<ItemDistrict>(Emails.fakeEmails()));     //add list ItemDistrict from our folder
-
-       // Intent intent = getIntent();
-       // Bundle extras = intent.getExtras();
-
-       /* if (extras.getString("name") != null) {
-            ItemDistrict itemDistrict = ItemDistrict.DistrictBuilder.builder()
-                    .setUser(extras.getString("name"))
-                    .setSubject(extras.getString("region"))
-                    .setPreview(extras.getString("forestry"))
-                    .setDate(extras.getString("data"))
-                    .build();
-
-            districtAdapter.getItemDistricts().add(0, itemDistrict);
-        }*/
         districtAdapter.notifyItemInserted(0);
 
 
@@ -139,9 +124,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     districtAdapter.selectedItems.clear();
                     List<District> districts = districtAdapter.getListDistricts();
                     for (District district : districts) {
-                       // if (itemDistrict.getItemDistrict().isSelected())
                         if (district.isSelected())
-                           // itemDistrict.getItemDistrict().setSelected(false);
                             district.setSelected(false);
                     }
 
@@ -172,20 +155,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.menuNewDistrict) {
-
-
-            // AddNewDistrict addNewDistrict = new AddNewDistrict();
-            // addNewDistrict.setEmailAdapter(emailAdapter);
-            // addNewDistrict.setRecyclerView(rv);
             drawerLayout.closeDrawers();
             Intent intent = new Intent(this, AddNewDistrict.class);
             startActivity(intent);
-
-
             return true;
-            //openDialog();
-            //drawerLayout.closeDrawers();
-
 
         }
         return false;
@@ -208,7 +181,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         FileInputStream fis = null;
         ObjectInputStream oin = null;
         File[] fList = folder.listFiles();
-
 
         if (fList != null) {
             for (File f : fList) {
@@ -234,23 +206,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     allDistricts.add(district);
 
             }
-          /*  for(District district :allDistricts ){
-                if(district!=null)
-                itemDistricts.add(district.getItemDistrict());
-            }*/
         }
     }
-
-    public static void hideSoftKeyboard(Context context, View view) {
-        try {
-            InputMethodManager inputMethodManager =
-                    (InputMethodManager) context.getSystemService(
-                            Activity.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(
-                    view.getWindowToken(), 0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }
