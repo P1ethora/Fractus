@@ -12,7 +12,6 @@ public class District implements Serializable {
     private boolean selected;
 
     private static final long serialVersionUID = 99999000808844L;
-    //private ItemDistrict itemDistrict;
     private ArrayList<Quarter> listQuarters;
     private byte[] bitmap;
 
@@ -20,7 +19,6 @@ public class District implements Serializable {
 
     public District(ArrayList<Quarter> listQuarters) {
 
-       // this.itemDistrict = itemDistrict;
         this.listQuarters = listQuarters;
     }
 

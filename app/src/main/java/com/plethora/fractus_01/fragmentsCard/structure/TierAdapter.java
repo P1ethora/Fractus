@@ -1,5 +1,10 @@
 package com.plethora.fractus_01.fragmentsCard.structure;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,12 +14,16 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.plethora.fractus_01.R;
+import com.plethora.fractus_01.SelectedAdapterListener;
+import com.plethora.fractus_01.model.District;
 
 import java.util.Collections;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +33,13 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private List<TierItemStructure> itemList;
     private StructureAdapter structureAdapter;
-
-
+    private  TierItemStructure tierItemStructure;
+    private Context mContext;
     private RecyclerView recyclerView;
+
+    //private SelectedAdapterListener listener;
+    private int currentSelectedPos;
+    //final SparseBooleanArray selectedItems = new SparseBooleanArray();
 
     TierAdapter(List<TierItemStructure> itemList, RecyclerView recyclerView) {
         this.itemList = itemList;
@@ -41,8 +54,10 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, int i) {
-        TierItemStructure itemTier = itemList.get(i);
+    public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, int position) {
+
+        mContext = itemViewHolder.rvSubItem.getContext();
+        TierItemStructure itemTier = itemList.get(position);
         itemViewHolder.tvItemTitle.setText(itemTier.getItemTitle());
 
         // Create layout manager with initial prefetch item count
@@ -60,6 +75,24 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
         itemViewHolder.rvSubItem.setAdapter(structureAdapter);
         itemViewHolder.rvSubItem.setRecycledViewPool(viewPool);
 
+
+
+       /* if (itemTier.isSelected()) {
+            //txtIcon.setBackground(oval(Color.rgb(26, 115, 233), txtIcon));
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+            //gradientDrawable.setCornerRadius(32f);
+            gradientDrawable.setColor(Color.rgb(232, 240, 253));
+            itemViewHolder.itemView.setBackground(gradientDrawable);
+        } else {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+            //gradientDrawable.setCornerRadius(32f);
+            gradientDrawable.setColor(Color.WHITE);
+            itemViewHolder.itemView.setBackground(gradientDrawable);
+        }*/
+
+
         itemViewHolder.menuPop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,8 +104,19 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.tier_delete:
-                                Toast.makeText(itemViewHolder.rvSubItem.getContext(), "Delete", Toast.LENGTH_SHORT).show();
+                                tierItemStructure = new TierItemStructure(itemList.get(position).getItemTitle(),itemList.get(position).getSubItems());
+                                deleteItemTier(v, position);
                                 break;
+                            case  R.id.tier_add_line:
+                                ItemStructure newItemStructure = new ItemStructure();
+                                newItemStructure.setA("");
+                                newItemStructure.setCoef("");
+                                newItemStructure.setD("");
+                                newItemStructure.setH("");
+                                newItemStructure.setKLT("");
+                                newItemStructure.setTypeTree("");
+
+                                itemList.get(position).getSubItems().add(newItemStructure);
                         }
                         return false;
                     }
@@ -80,6 +124,46 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
             }
         });
 
+        /*itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+              //  if (selectedItems.size() > 0 && listener != null)
+                //    listener.onItemClick(position);
+               // itemViewHolder.cardView.setCardBackgroundColor(Color.GREEN);
+
+            }
+        });*/
+
+       /* itemViewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if (listener != null)
+                    listener.onItemLongClick(position);
+                return true;
+            }
+        });
+
+        if (currentSelectedPos == position) currentSelectedPos = -1;*/
+
+    }
+
+    private void deleteItemTier(View view, int position){
+
+        itemList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,itemList.size());
+
+        Snackbar.make(view, "Undo deletion of: " + tierItemStructure.getItemTitle(), Snackbar.LENGTH_LONG)
+                .setAction("UNDO", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        itemList.add(position,tierItemStructure);
+                        notifyItemInserted(position);
+                        notifyItemRangeChanged(position,itemList.size());
+                    }
+                }).setActionTextColor(mContext.getResources().getColor(android.R.color.holo_blue_bright))
+                .show();
     }
 
     @Override
@@ -91,6 +175,7 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
         private TextView tvItemTitle;
         private RecyclerView rvSubItem;
         private ImageView menuPop;
+        private CardView cardView;
 
 
         ItemViewHolder(View itemView) {
@@ -99,6 +184,7 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
             tvItemTitle = itemView.findViewById(R.id.tv_item_title);
             rvSubItem = itemView.findViewById(R.id.rv_sub_item);
             menuPop = itemView.findViewById(R.id.button_menu_tier);
+            cardView = itemView.findViewById(R.id.tier_cardView);
 
             ItemTouchHelper helper = new ItemTouchHelper(
                     new TierAdapter.ItemTouchHandler(0,
@@ -140,4 +226,27 @@ public class TierAdapter extends RecyclerView.Adapter<TierAdapter.ItemViewHolder
             structureAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
         }
     }
+
+   /* void toggleSelection(int position) {
+        currentSelectedPos = position;
+        if (selectedItems.get(position)) {
+            selectedItems.delete(position);
+            //listDistricts.get(position).getItemDistrict().setSelected(false);
+            itemList.get(position).setSelected(false);
+        } else {
+            selectedItems.put(position, true);
+            //listDistricts.get(position).getItemDistrict().setSelected(true);
+            itemList.get(position).setSelected(true);
+        }
+        notifyItemChanged(position);
+    }*/
+
+
+  /*  public void setListener(SelectedAdapterListener listener) {
+        this.listener = listener;
+    }
+*/
+
+
+
 }

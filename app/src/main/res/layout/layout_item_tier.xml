@@ -7,6 +7,7 @@
     >
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/tier_cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="#f3f3f3"

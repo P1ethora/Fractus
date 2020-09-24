@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.plethora.fractus_01.SelectedAdapterListener;
 import com.plethora.fractus_01.model.logic.AddNewDistrict;
 import com.plethora.fractus_01.R;
 import com.plethora.fractus_01.model.District;
@@ -76,7 +77,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         districtAdapter.notifyItemInserted(0);
 
 
-        districtAdapter.setListener(new DistrictAdapter.EmailAdapterListener() {
+        districtAdapter.setListener(new SelectedAdapterListener() {
             @Override
             public void onItemClick(int position) {
                 enableActionMode(position);

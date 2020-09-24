@@ -17,6 +17,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
 import com.plethora.fractus_01.R;
+import com.plethora.fractus_01.SelectedAdapterListener;
 import com.plethora.fractus_01.graphical_display.graphical_model.listQuarter.NewForesty;
 import com.plethora.fractus_01.model.logic.SelectionState;
 import com.plethora.fractus_01.model.District;
@@ -31,7 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailViewHolder> {
 
-    private EmailAdapterListener listener;
+    private SelectedAdapterListener listener;
     private final List<District> listDistricts;
     final SparseBooleanArray selectedItems = new SparseBooleanArray();
     private int currentSelectedPos;
@@ -44,7 +45,7 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
         return listDistricts;
     }
 
-    public void setListener(EmailAdapterListener listener) {
+    public void setListener(SelectedAdapterListener listener) {
         this.listener = listener;
     }
 
@@ -231,11 +232,11 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
         return shapeDrawable;
     }
 
-    interface EmailAdapterListener {
+   /* interface AdapterListener {
         void onItemClick(int position);
 
         void onItemLongClick(int position);
-    }
+    }*/
 
 
 }

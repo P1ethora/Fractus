@@ -7,4 +7,9 @@
         android:title="delete"
         app:showAsAction="never"/>
 
+    <item
+        android:id="@+id/tier_add_line"
+        android:title="add line"
+        app:showAsAction="never" />
+
 </menu>

@@ -3,6 +3,7 @@ package com.plethora.fractus_01.fragmentsCard.structure;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +46,7 @@ public class Structure extends AppCompatActivity implements Serializable {
     private SwipeMenuListView listView;
     private int quarterNumber;
     private int sectionNumber;
+    private ActionMode actionMode;
 
 
     @Override
@@ -89,8 +91,11 @@ public class Structure extends AppCompatActivity implements Serializable {
                 itemStructure.setH("");
                 itemStructure.setD("");
                 itemStructure.setKLT("");
+                TierItemStructure tierItemStructure = new TierItemStructure("tier" +String.valueOf(tierList.size()+1),
+                        new ArrayList<ItemStructure>());
 
-                productList.add(itemStructure);
+               // productList.add(itemStructure);
+                tierList.add(tierItemStructure);
                 //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure);
                 try {
                     SelectionState.save();
@@ -106,30 +111,7 @@ public class Structure extends AppCompatActivity implements Serializable {
         // if (productList.size() == 0) {
         // if (SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().size() == 0) {
 
-        ItemStructure itemStructure = new ItemStructure();
-
-        //itemStructure.setYarus("");
-        itemStructure.setCoef("");
-        itemStructure.setTypeTree("");
-        itemStructure.setA("");
-        itemStructure.setH("");
-        itemStructure.setD("");
-        itemStructure.setKLT("");
-
-        ItemStructure itemStructure1 = new ItemStructure();
-
-        //itemStructure1.setYarus("");
-        itemStructure1.setCoef("");
-        itemStructure1.setTypeTree("");
-        itemStructure1.setA("");
-        itemStructure1.setH("");
-        itemStructure1.setD("");
-        itemStructure1.setKLT("");
-
-        productList.add(itemStructure);
-        productList.add(itemStructure1);
-
-        TierItemStructure tierItemStructure = new TierItemStructure("tier1", productList);
+        TierItemStructure tierItemStructure = new TierItemStructure("tier1", new ArrayList<ItemStructure>());
         tierList.add(tierItemStructure);
         //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure);
         //SelectionState.file.getListQuarters().get(quarterNumber).getListSections().get(sectionNumber).getListItemStructure().add(itemStructure1);
@@ -204,5 +186,9 @@ public class Structure extends AppCompatActivity implements Serializable {
             adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
         }
     }
+
+
+
+
 }
 
