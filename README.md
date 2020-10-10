@@ -12,7 +12,7 @@
 Дешифровка афс в мобильном устройстве.
 
 За основу интерфейса взята данная карточка таксации
-Тыльная сторона:
+Передняя сторона:
 ![alt text](https://sun9-49.userapi.com/c849524/v849524588/19ba68/UvG_kZ3KTYA.jpg)
 Обратная сторона:
 ![alt text](https://sun9-35.userapi.com/DA21LcaODIy5Ja77oE-1Cqa5MRfYTOYuALRN8Q/0ksHosBQQ7g.jpg)
