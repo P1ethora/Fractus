@@ -31,67 +31,67 @@
 
 
     <EditText
-        android:id="@+id/Coef"
+        android:id="@+id/Coef1"
         android:layout_width="51dp"
         android:layout_height="55dp"
         android:gravity="center"
 
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:background="@color/white"
 
         />
 
 
     <EditText
-        android:id="@+id/TypeTree"
+        android:id="@+id/TypeTree1"
         android:layout_width="51dp"
         android:layout_height="55dp"
         android:gravity="center"
         android:layout_marginStart="1dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:background="@color/white"
-        android:layout_toEndOf="@+id/Coef"/>
+        android:layout_toEndOf="@+id/Coef1"/>
 
 
     <EditText
-        android:id="@+id/A"
+        android:id="@+id/A1"
     android:layout_width="51dp"
     android:layout_height="55dp"
         android:gravity="center"
         android:layout_marginStart="1dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
     android:background="@color/white"
-    android:layout_toEndOf="@+id/TypeTree"/>
+    android:layout_toEndOf="@+id/TypeTree1"/>
 
     <EditText
-        android:id="@+id/H"
+        android:id="@+id/H1"
         android:layout_width="50dp"
         android:layout_height="55dp"
         android:gravity="center"
         android:layout_marginStart="1dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:background="@color/white"
-        android:layout_toEndOf="@+id/A"/>
+        android:layout_toEndOf="@+id/A1"/>
 
     <EditText
-        android:id="@+id/D"
+        android:id="@+id/D1"
         android:layout_width="51dp"
         android:layout_height="55dp"
         android:gravity="center"
         android:layout_marginStart="1dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:background="@color/white"
-        android:layout_toEndOf="@+id/H"/>
+        android:layout_toEndOf="@+id/H1"/>
 
     <EditText
-        android:id="@+id/KLT"
+        android:id="@+id/KLT1"
         android:layout_width="51dp"
         android:layout_height="55dp"
         android:gravity="center"
         android:layout_marginStart="1dp"
-        android:textColor="@color/black"
+        android:textColor="@color/Black"
         android:background="@color/white"
-        android:layout_toEndOf="@+id/D"/>
+        android:layout_toEndOf="@+id/D1"/>
 
 
 </RelativeLayout>

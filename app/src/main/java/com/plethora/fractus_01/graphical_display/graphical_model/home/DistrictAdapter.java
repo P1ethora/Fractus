@@ -76,8 +76,6 @@ public class DistrictAdapter extends RecyclerView.Adapter<DistrictAdapter.EmailV
                     SelectionState.file = district;
                     Intent intent = new Intent(view.getContext(), NewForesty.class);   //если выделение не активировано и произошел клик открываем
 
-                    //intent.putExtra()
-                    //intent.putExtra("title", String.valueOf(getEmails().get(position)));
                     view.getContext().startActivity(intent);
                 }
             }

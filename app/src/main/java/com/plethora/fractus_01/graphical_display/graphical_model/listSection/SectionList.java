@@ -37,8 +37,8 @@ public class SectionList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_list);
 
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
+       // Intent intent = getIntent();
+        //Bundle extras = intent.getExtras();
 
         slidrInterface = Slidr.attach(this);
 
@@ -60,22 +60,25 @@ public class SectionList extends AppCompatActivity {
                 Section section = new Section();
                 section.setRecyclerItemSection(new RecyclerItemSection(String.valueOf(recyclerItemList.size()+1)));
                 //recyclerItemList.add(section);
-                forestryNumber = extras.getInt("numberQuarter");
+                //forestryNumber = extras.getInt("numberQuarter");
 
                 SelectionState.file.getListQuarters()
-                        .get(forestryNumber)
+                        .get(SelectionState.selectQuarter)
                         .getListSections().add(section);
-                try {
+               /* try {
                     SelectionState.save();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
                 recyclerViewSection.scrollToPosition(recyclerItemList.size() - 1);
 
                 Intent intent = new Intent(view.getContext(), SectionMenu.class);
-                intent.putExtra("numQuarter",forestryNumber);
-                intent.putExtra("numberSection", SelectionState.file.getListQuarters()
-                        .get(forestryNumber).getListSections().indexOf(section));
+                //intent.putExtra("numQuarter",forestryNumber);
+                //intent.putExtra("numberSection", SelectionState.file.getListQuarters()
+                  //      .get(forestryNumber).getListSections().indexOf(section));
+                SelectionState.selectSection = SelectionState.file.getListQuarters()
+                        .get(forestryNumber).getListSections().indexOf(section);
+
                 view.getContext().startActivity(intent);
 
 
@@ -106,7 +109,7 @@ fab.show();
         //if (extras.getString("number") != null)
 
             recyclerItemList = SelectionState.file.getListQuarters()
-                    .get(extras.getInt("num"))
+                    .get(SelectionState.selectQuarter)
                     .getListSections();
 
 
@@ -122,5 +125,17 @@ fab.show();
             }
             return super.onOptionsItemSelected(item);
         }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+
+            SelectionState.save();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     }

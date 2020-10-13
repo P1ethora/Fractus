@@ -13,7 +13,8 @@ public class SelectionState {
 
     public static District file;
 
-    public static Section selectSection;
+    public static int selectQuarter;
+    public static int selectSection;
 
 
 public static void save() throws IOException {

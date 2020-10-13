@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.plethora.fractus_01.R;
 import com.plethora.fractus_01.graphical_display.graphical_model.sectionMenu.SectionMenu;
 import com.plethora.fractus_01.model.Section;
+import com.plethora.fractus_01.model.logic.SelectionState;
 
 import java.util.ArrayList;
 
@@ -60,7 +61,8 @@ public class AdapterRecyclerSection extends RecyclerView.Adapter<AdapterRecycler
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), SectionMenu.class);
-                    intent.putExtra("num", getAdapterPosition());
+                    //intent.putExtra("num", getAdapterPosition());
+                    SelectionState.selectSection = getAdapterPosition();
                     v.getContext().startActivity(intent);
                 }
             });

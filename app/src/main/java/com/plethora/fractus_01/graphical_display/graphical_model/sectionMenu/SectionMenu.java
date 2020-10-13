@@ -13,7 +13,7 @@ import com.plethora.fractus_01.fragmentsCard.description.Description;
 import com.plethora.fractus_01.fragmentsCard.events.Events;
 import com.plethora.fractus_01.fragmentsCard.modelTrees.ModelTrees;
 import com.plethora.fractus_01.fragmentsCard.moreInformation.MoreInformation;
-import com.plethora.fractus_01.fragmentsCard.structure.Structure;
+import com.plethora.fractus_01.fragmentsCard.structure.spinner.Structure;
 import com.plethora.fractus_01.fragmentsCard.underbrush.Underbrush;
 import com.plethora.fractus_01.fragmentsCard.undergrowth.Undergrowth;
 
@@ -28,27 +28,16 @@ public class SectionMenu extends AppCompatActivity {
     private Button btnModelTrees;
     private Button btnCircularSquares;
 
-    private int quarterNumber;
-    private int sectionNumber;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_section_menu);
-
-        Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-
-        quarterNumber = extras.getInt("numQuarter");
-        sectionNumber = extras.getInt("numberSection");
 
         btnStructure = (Button)findViewById(R.id.btnStructure);
         btnStructure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SectionMenu.this, Structure.class);
-                intent.putExtra("numQuarter",sectionNumber);
-                intent.putExtra("numQuarter",quarterNumber);
 
                 startActivity(intent);
             }

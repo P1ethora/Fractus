@@ -2,7 +2,8 @@ package com.plethora.fractus_01.model;
 
 import com.plethora.fractus_01.fragmentsCard.circularSquares.CircularSquares;
 import com.plethora.fractus_01.fragmentsCard.moreInformation.MoreInformation;
-import com.plethora.fractus_01.fragmentsCard.structure.ItemStructure;
+import com.plethora.fractus_01.fragmentsCard.structure.spinner.ElementRecyclerRow;
+import com.plethora.fractus_01.fragmentsCard.structure.spinner.ElementRecyclerTier;
 import com.plethora.fractus_01.graphical_display.graphical_model.listSection.RecyclerItemSection;
 
 import java.io.Serializable;
@@ -17,12 +18,16 @@ private long square;
 private int orl;
 private RecyclerItemSection recyclerItemSection;
 
+private ArrayList <ElementRecyclerTier> tiers;
 
-    private ArrayList<ItemStructure> listItemStructure;
-private ItemStructure itemStructure;
+    private ArrayList<ElementRecyclerRow> listItemStructure;
+//private ItemStructure itemStructure;
 
 private MoreInformation moreInformation;
 private CircularSquares circularSquares;
+
+
+public Section(){}
 
 
     public RecyclerItemSection getRecyclerItemSection() {
@@ -33,12 +38,6 @@ private CircularSquares circularSquares;
         this.recyclerItemSection = recyclerItemSection;
     }
 
-    public ArrayList<ItemStructure> getListItemStructure() {
-        return listItemStructure;
-    }
 
-    public void setListItemStructure(ArrayList<ItemStructure> listItemStructure) {
-        this.listItemStructure = listItemStructure;
-    }
 
 }

@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name="com.plethora.fractus_01.fragmentsCard.structure.spinner.Structure"
+            android:label="Structure"/>
+
         <activity android:name="com.plethora.fractus_01.Snapshot"
             android:label="Snapshot"
             android:windowSoftInputMode="stateHidden"/>
@@ -85,11 +88,6 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <activity
-            android:name="com.plethora.fractus_01.fragmentsCard.structure.Structure"
-            android:label="Structure"
-            android:theme="@style/AppTheme.SlidrActivityTheme"
-            android:windowSoftInputMode="stateHidden" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

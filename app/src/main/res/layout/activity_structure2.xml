@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_light_background"
-    tools:context=".fragmentsCard.structure.Structure"
+    tools:context=".fragmentsCard.structure.spinner.Structure"
     tools:ignore="PrivateResource">
 
     <LinearLayout
@@ -45,7 +45,7 @@
             android:text="Coef"
             android:gravity="center"
 
-            android:textColor="@color/black"
+            android:textColor="@color/Black"
             android:background="@color/white"
 
             />
@@ -58,7 +58,7 @@
             android:text="Tree"
             android:gravity="center"
             android:layout_marginStart="1dp"
-            android:textColor="@color/black"
+            android:textColor="@color/Black"
             android:background="@color/white"
             android:layout_toEndOf="@+id/Coef"/>
 
@@ -70,7 +70,7 @@
             android:text="A"
             android:gravity="center"
             android:layout_marginStart="1dp"
-            android:textColor="@color/black"
+            android:textColor="@color/Black"
             android:background="@color/white"
             android:layout_toEndOf="@+id/TypeTree"/>
 
@@ -81,7 +81,7 @@
             android:text="H"
             android:gravity="center"
             android:layout_marginStart="1dp"
-            android:textColor="@color/black"
+            android:textColor="@color/Black"
             android:background="@color/white"
             android:layout_toEndOf="@+id/A"/>
 
@@ -92,7 +92,7 @@
             android:text="D"
             android:gravity="center"
             android:layout_marginStart="1dp"
-            android:textColor="@color/black"
+            android:textColor="@color/Black"
             android:background="@color/white"
             android:layout_toEndOf="@+id/H"/>
 
@@ -103,7 +103,7 @@
             android:text="KLT"
             android:gravity="center"
             android:layout_marginStart="1dp"
-            android:textColor="@color/black"
+            android:textColor="@color/Black"
             android:background="@color/white"
             android:layout_toEndOf="@+id/D"/>
 

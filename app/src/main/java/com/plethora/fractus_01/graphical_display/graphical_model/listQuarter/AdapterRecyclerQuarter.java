@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.plethora.fractus_01.R;
 import com.plethora.fractus_01.graphical_display.graphical_model.listSection.SectionList;
 import com.plethora.fractus_01.model.Quarter;
+import com.plethora.fractus_01.model.logic.SelectionState;
 
 import java.util.List;
 import androidx.annotation.NonNull;
@@ -37,7 +38,7 @@ public class AdapterRecyclerQuarter extends RecyclerView.Adapter<AdapterRecycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderQuarter holder, int position) {
-        final Quarter quarter = recyclerItemList.get(position);
+        Quarter quarter = recyclerItemList.get(position);
         holder.textNumber.setText(quarter.getRecyclerItemQuarter().getNumber());
     }
 
@@ -62,7 +63,8 @@ public class AdapterRecyclerQuarter extends RecyclerView.Adapter<AdapterRecycler
                 public void onClick(View v) {
 
                     Intent intent = new Intent(v.getContext(), SectionList.class);
-                    intent.putExtra("numberQuarter",getAdapterPosition());
+                    //intent.putExtra("numberQuarter",getAdapterPosition());
+                    SelectionState.selectQuarter = getAdapterPosition();
                     v.getContext().startActivity(intent);
                 }
             });
